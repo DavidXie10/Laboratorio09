@@ -130,3 +130,91 @@ ol li{
     display: none;
     font-size: 2rem;
 }
+
+/* Codigo modal adaptado de https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_delete_modal */
+.container p{
+    color: #f1f1f1;
+    background-color: #55a5d2;
+    font-size: 2rem;
+    margin: 1rem 0;
+    padding: 2rem;
+}
+
+.cancelbtn, .OKbtn {
+    float: left;
+    width: 50%;
+    padding: 1rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    background: #888;
+    border: 1px solid black;
+}
+
+.OKbtn{
+    background:darkgreen;
+}
+
+.cancelbtn:hover {
+    background-color: #ccc;
+    color: black;
+}
+
+.OKbtn:hover {
+    background-color:#1eaa5a;
+}
+
+.container {
+    padding: 1rem;
+    text-align: center;
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: #474e5d;
+    padding-top: 50px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; 
+    border: 1px solid #888;
+    width: 80%; 
+}
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+ 
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+.close:hover, .close:focus {
+    color: #f44336;
+    cursor: pointer;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+@media screen and (max-width: 300px) {
+    .cancelbtn, .deletebtn {
+        width: 100%;
+    }
+}

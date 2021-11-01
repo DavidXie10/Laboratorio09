@@ -108,11 +108,39 @@
                 <p id="final-message"><strong>¡Refresque la página para hacer un nuevo quiz!</strong></p>
                 <div id="exercises-buttons">
                     <span>
-                        <button id="check_solutions" onclick="checkAnswers()"><strong>Verificar respuestas</strong></button>    
+                        <button id="check_solutions" onclick="document.getElementById('checkAnswersModal').style.display='block';"><strong>Verificar respuestas</strong></button>    
                     </span>
                     <span>
-                        <button id="show_solutions" onclick="showAnswers()"><strong>Mostrar respuestas</strong></button>    
+                        <button id="show_solutions" onclick="document.getElementById('showAnswersModal').style.display='block';"><strong>Mostrar respuestas</strong></button>    
                     </span>
+                </div>
+
+                <div id="showAnswersModal" class="modal">
+                    <span onclick="document.getElementById('showAnswersModal').style.display='none'" class="close" title="Close Modal">×</span>
+                    <form class="modal-content" action="/action_page.php">
+                        <div class="container">
+                            <p><strong>¿Está seguro que quiere ver las respuestas?</strong></p>
+                            
+                            <div class="clearfix">
+                                <button type="button" onclick="hide(SHOW_ANSWERS_MODAL)" class="cancelbtn"><strong>Cancelar</strong></button>
+                                <button type="button" onclick="showAnswers()" class="OKbtn"><strong>OK</strong></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="checkAnswersModal" class="modal">
+                    <span onclick="document.getElementById('checkAnswersModal').style.display='none'" class="close" title="Close Modal">×</span>
+                    <form class="modal-content" action="/action_page.php">
+                        <div class="container">
+                            <p><strong>¿Está seguro que quiere revisar sus respuestas?</strong></p>
+                            
+                            <div class="clearfix">
+                                <button type="button" onclick="hide(CHECK_ANSWERS_MODAL)" class="cancelbtn"><strong>Cancelar</strong></button>
+                                <button type="button" onclick="checkAnswers()" class="OKbtn"><strong>OK</strong></button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </main>

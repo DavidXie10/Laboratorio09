@@ -9,6 +9,8 @@ const ERROR_INPUT_MESSAGE = 'invalid-input-error';
 const QUIZ_TITLE = 'quiz-title';
 const QUIZ_MESSAGE = 'quiz-message';
 const FINAL_MESSAGE = 'final-message';
+const SHOW_ANSWERS_MODAL = 'showAnswersModal';
+const CHECK_ANSWERS_MODAL = 'checkAnswersModal';
 const TOTAL_QUESTIONS = 20;
 
 function displayExercises(){
@@ -25,52 +27,51 @@ function displayExercises(){
 }
 
 function checkAnswers(){
-    if (confirm('¿Está seguro que quiere revisar sus respuestas?')) {
-        setContent(QUIZ_TITLE, '<strong>Sus resultados</strong>');
-        let correctAnswers = 0;
-        let totalQuestions = 0;
-    
-        for(let question = 1; question <= TOTAL_QUESTIONS; ++question){
-            let questionTag = document.getElementById(BASE_LIST_ITEM_ID + question.toString());
-            if (window.getComputedStyle(questionTag).display != "none") {
-                let userInput = parseInt(document.getElementById(BASE_INPUT_SOLUTION_ID + question).value);
-                let answer = document.getElementById(BASE_SOLUTION_ITEM_ID + question).innerHTML;
-                if(userInput == answer){
-                    ++correctAnswers;
-                    hide(BASE_INPUT_SOLUTION_ID + question);
-                }else{
-                    let inputSolution = document.getElementById(BASE_INPUT_SOLUTION_ID + question);
-                    inputSolution.style.border = "solid red";
-                    inputSolution.style.color = "red";
-                    showInlineBlock(BASE_ANSWER_MESSAGE + question);
-                }
-    
-                showInlineBlock(BASE_SOLUTION_ITEM_ID + question);
-                ++totalQuestions;
+    hide(CHECK_ANSWERS_MODAL);
+    setContent(QUIZ_TITLE, '<strong>Sus resultados</strong>');
+    let correctAnswers = 0;
+    let totalQuestions = 0;
+
+    for(let question = 1; question <= TOTAL_QUESTIONS; ++question){
+        let questionTag = document.getElementById(BASE_LIST_ITEM_ID + question.toString());
+        if (window.getComputedStyle(questionTag).display != "none") {
+            let userInput = parseInt(document.getElementById(BASE_INPUT_SOLUTION_ID + question).value);
+            let answer = document.getElementById(BASE_SOLUTION_ITEM_ID + question).innerHTML;
+            if(userInput == answer){
+                ++correctAnswers;
+                hide(BASE_INPUT_SOLUTION_ID + question);
+            }else{
+                let inputSolution = document.getElementById(BASE_INPUT_SOLUTION_ID + question);
+                inputSolution.style.border = "solid red";
+                inputSolution.style.color = "red";
+                showInlineBlock(BASE_ANSWER_MESSAGE + question);
             }
+
+            showInlineBlock(BASE_SOLUTION_ITEM_ID + question);
+            ++totalQuestions;
         }
-    
-        setContent(QUIZ_MESSAGE, 'Respondió <strong>' + correctAnswers + '</strong> operaciones de <strong>' + totalQuestions + '</strong> correctamente.');
-        hide(EXERCISES_BUTTONS_PLACE);
-        show(FINAL_MESSAGE);
     }
+
+    setContent(QUIZ_MESSAGE, 'Respondió <strong>' + correctAnswers + '</strong> operaciones de <strong>' + totalQuestions + '</strong> correctamente.');
+    hide(EXERCISES_BUTTONS_PLACE);
+    show(FINAL_MESSAGE);
+
 }
 
 function showAnswers(){
-    if (confirm('¿Está seguro que quiere ver las respuestas?')) {
-        setContent(QUIZ_TITLE, '<strong>Respuestas</strong>');
+    hide(SHOW_ANSWERS_MODAL);
+    setContent(QUIZ_TITLE, '<strong>Respuestas</strong>');
 
-        for(let question = 1; question <= TOTAL_QUESTIONS; ++question){
-            let questionTag = document.getElementById(BASE_LIST_ITEM_ID + question);
-            if (window.getComputedStyle(questionTag).display != "none") {
-                hide(BASE_INPUT_SOLUTION_ID + question);
-                showInlineBlock(BASE_SOLUTION_ITEM_ID + question);
-            }
+    for(let question = 1; question <= TOTAL_QUESTIONS; ++question){
+        let questionTag = document.getElementById(BASE_LIST_ITEM_ID + question);
+        if (window.getComputedStyle(questionTag).display != "none") {
+            hide(BASE_INPUT_SOLUTION_ID + question);
+            showInlineBlock(BASE_SOLUTION_ITEM_ID + question);
         }
-    
-        hide(EXERCISES_BUTTONS_PLACE);
-        show(FINAL_MESSAGE);
-    } 
+    }
+
+    hide(EXERCISES_BUTTONS_PLACE);
+    show(FINAL_MESSAGE);
 }
 
 function setContent(id, content){
@@ -100,3 +101,16 @@ function show(id){
 function hide(id){
     document.getElementById(id).style.display = "none";
 }
+
+function hideModals(modalId){
+    let modal = document.getElementById(modalId);
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
+hideModals(CHECK_ANSWERS_MODAL);
+hideModals(SHOW_ANSWERS_MODAL);
