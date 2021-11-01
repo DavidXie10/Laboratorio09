@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <h1>Generador de quices matemáticos</h1>
+        </header>
+        <main>
+            <div id="input-container">
+                <p><strong>Seleccione la cantidad de operaciones que quiere resolver (entre 5 y 20)</strong></p>
+                <input id="items-count-input" type="number" placeholder="Ítems por responder" min="5" max="20">
+                <button id="select-button" onclick="displayExercises()">Generar quiz</button>    
+                <p id="invalid-input-error">Error: debe ser un número entre 5 y 20</p>
+            </div>
+            <hr />
+            <div id="exercise-items">
+                <p id="quiz-title"></p>
+                <p id="quiz-message"></p>
+                <div id="items-list-container">
+                    <ol class="tasks">
+                        <li id="question_1">
+                            2 + 3 (76 - 1) + 2  = <input type="number" id="input_solution_1" > 
+                            <p id="checkMessage_1"><strong><em>La respuesta correcta es: </em></strong></p><span id="solution_1">229</span> 
+                        </li>
+                        <li id="question_2">
+                            2 + 5 (76 - 6) + 1 = <input type="number" id="input_solution_2" > 
+                            <p id="checkMessage_2"><strong><em>La respuesta correcta es: </em></strong></p><span id="solution_2">353</span>
+                        </li>
+                        <li id="question_3">
+                            6 + 3 - 2 (5 + 40)  = <input type="number" id="input_solution_3" >
+                            <p id="checkMessage_3"><strong><em>La respuesta correcta es: </em></strong></p>  <span id="solution_3">-81</span>
+                        </li>
+                        <li id="question_4">
+                            10 / 2 + 5(42 - 1) = <input type="number" id="input_solution_4" > 
+                            <p id="checkMessage_4"><strong><em>La respuesta correcta es: </em></strong></p> <span id="solution_4">210</span>
+                        </li>                    
+                        <li id="question_5">
+                            1 + 7 + 2(11 + 2) = <input type="number" id="input_solution_5" > 
+                            <p id="checkMessage_5"><strong><em>La respuesta correcta es: </em></strong></p> <span id="solution_5">34</span>
+                        </li>
+                        <li id="question_6">
+                            (14 / 2) + 71 - 57 = <input type="number" id="input_solution_6" > 
+                            <p id="checkMessage_6"><strong><em>La respuesta correcta es: </em></strong></p> <span id="solution_6">21</span>
+                        </li>
+                        <li id="question_7">
+                            1 + 2 (35 / 5) + 4 = <input type="number" id="input_solution_7" > 
+                            <p id="checkMessage_7"><strong><em>La respuesta correcta es: </em></strong></p> <span id="solution_7">19</span>
+                        </li>
+                        <li id="question_8">
+                            8 + 7 (80 / 5) + 5 = <input type="number" id="input_solution_8" > 
+                            <p id="checkMessage_8"><strong><em>La respuesta correcta es: </em></strong></p> <span id="solution_8">125</span>
+                        </li>
+                        <li id="question_9">
+                            (2 * 3) - 5 - 2 + 8 = <input type="number" id="input_solution_9" > 
+                            <p id="checkMessage_9"><strong><em>La respuesta correcta es: </em></strong></p> <span id="solution_9">7</span>
+                        </li>
+                        <li id="question_10">
+                            9 + 8 (24 - 2) + 7 = <input type="number" id="input_solution_10" >
+                            <p id="checkMessage_10"><strong><em>La respuesta correcta es: </em></strong></p>  <span id="solution_10">192</span>
+                        </li>
+                        <li id="question_11">
+                            (18 / 2) + 94 - 75 = <input type="number" id="input_solution_11" > 
+                            <p id="checkMessage_11"><strong><em>La respuesta correcta es: </em></strong></p> <span id="solution_11">28</span>
+                        </li>
+                        <li id="question_12">
+                            2 + 2 (74 - 2) + 6 = <input type="number" id="input_solution_12" > 
+                            <p id="checkMessage_12"><strong><em>La respuesta correcta es: </em></strong></p> <span id="solution_12">152</span>
+                        </li>                    
+                        <li id="question_13">
+                            (56 / 2) + 82 - 34 = <input type="number" id="input_solution_13" > 
+                            <p id="checkMessage_13"><strong><em>La respuesta correcta es: </em></strong></p> <span id="solution_13">76</span>
+                        </li>
+                        <li id="question_14">
+                            4 + 2 (24 - 9) + 3 = <input type="number" id="input_solution_14" > 
+                            <p id="checkMessage_14"><strong><em>La respuesta correcta es: </em></strong></p> <span id="solution_14">37</span>
+                        </li>
+                        <li id="question_15">
+                            (27 / 3) + 10 - 24 = <input type="number" id="input_solution_15" > 
+                            <p id="checkMessage_15"><strong><em>La respuesta correcta es: </em></strong></p> <span id="solution_15">-5</span>
+                        </li>
+                        <li id="question_16">
+                            5 + 5 (55 - 5) + 7 = <input type="number" id="input_solution_16" > 
+                            <p id="checkMessage_16"><strong><em>La respuesta correcta es: </em></strong></p> <span id="solution_16">262</span>
+                        </li>
+                        <li id="question_17">
+                            9 + 9 (99 - 4) + 7 = <input type="number" id="input_solution_17" > 
+                            <p id="checkMessage_17"><strong><em>La respuesta correcta es: </em></strong></p> <span id="solution_17">871</span>
+                        </li>
+                        <li id="question_18">
+                            (66 / 2) + 21 - 34 = <input type="number" id="input_solution_18" > 
+                            <p id="checkMessage_18"><strong><em>La respuesta correcta es: </em></strong></p> <span id="solution_18">20</span>
+                        </li>
+                        <li id="question_19">
+                            8 + 7 (77 - 7) + 7 = <input type="number" id="input_solution_19" > 
+                            <p id="checkMessage_19"><strong><em>La respuesta correcta es: </em></strong></p> <span id="solution_19">505</span>
+                        </li>
+                        <li id="question_20">
+                            (99 / 9) + 41 - 18 = <input type="number" id="input_solution_20" > 
+                            <p id="checkMessage_20"><strong><em>La respuesta correcta es: </em></strong></p> <span id="solution_20">34</span>
+                        </li>
+                    </ol>
+                </div>
+                <p id="final-message"><strong>¡Refresque la página para hacer un nuevo quiz!</strong></p>
+                <div id="exercises-buttons">
+                    <span>
+                        <button id="check_solutions" onclick="checkAnswers()"><strong>Verificar respuestas</strong></button>    
+                    </span>
+                    <span>
+                        <button id="show_solutions" onclick="showAnswers()"><strong>Mostrar respuestas</strong></button>    
+                    </span>
+                </div>
+            </div>
+        </main>
+        <footer></footer>
+        <script src="./js/index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,132 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: #003476;
+}
+
+h1{
+    font-size: 4rem;
+    color:white;
+    padding-left: 1rem;
+    padding-top: 1rem;
+}
+
+#input-container p, #quiz-title{
+    font-size: 2rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#items-count-input{
+    margin-left: 1rem;
+    width: 15rem;
+    height: 2rem;
+}
+
+#exercise-items input{
+    width: 15rem;
+    height: 2rem;
+}
+
+#select-button{
+    width: 8rem;
+    height: 2rem;
+    margin: 0.5rem;
+}
+
+#check_solutions, #show_solutions{
+    font-size: .875em;
+    font-weight: 700;
+    width: 12rem;
+    height: 2rem;
+}
+
+#check_solutions:hover{
+    background-color: #55a5d2;
+}
+
+#show_solutions:hover{
+    background-color: green;
+}
+
+#invalid-input-error{
+    color:red;
+    display: none;
+}
+
+#input-container{
+    padding-bottom: 1rem;
+}
+
+#exercise-items .tasks li{
+    list-style: none;
+    position: relative;
+    padding: 0.2rem;
+}
+
+#exercises-buttons{
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 4rem;
+}
+
+#exercise-items .tasks{
+    counter-reset: li;
+}
+
+#exercise-items .tasks li::before{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #cae3f1;
+    color: #305c76;
+    content: counter(li);
+    counter-increment: li;
+    font-size: .875em;
+    font-weight: 700;
+    margin-right: 1.5rem;
+}
+
+#exercise-items{
+    display:none;
+    text-align: center;
+}
+
+#items-list-container{
+    display: inline-block;
+    text-align: left;
+}
+
+ol li{
+    display:block;
+}
+
+.tasks span{
+    display: none;
+    color: #1eaa5a;
+    font-weight: 700;
+}
+
+.tasks li p{
+   display: none; 
+   padding: 1rem;
+}
+
+#quiz-message{
+    padding: 1rem;
+}
+
+#final-message{
+    padding: 1rem;
+    margin-bottom: 2rem;
+    display: none;
+    font-size: 2rem;
+}
